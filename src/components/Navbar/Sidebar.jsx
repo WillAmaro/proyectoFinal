@@ -1,6 +1,6 @@
 import Navbar from './Navbar'
 
-const Saybar = ({ children }) => {
+const Sidebar = ({ children }) => {
   return (
     <div className='flex h-screen'>
       <Navbar />
@@ -13,4 +13,4 @@ const Saybar = ({ children }) => {
   )
 }
 
-export default Saybar
+export default Sidebar

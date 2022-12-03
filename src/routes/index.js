@@ -8,7 +8,7 @@ import {
 	CiteView
 } from "../pages";
 import { MainLayout } from "../layouts";
-import Saybar from "../components/Navbar/saybar";
+import Sidebar from "../components/Navbar/Sidebar";
 import PrivateRoutes from "./PrivateRoutes";
 
 // path => Nombre de la ruta /, /login, /registro
@@ -16,7 +16,7 @@ import PrivateRoutes from "./PrivateRoutes";
 const Router = () => {
 	return (	
 		<BrowserRouter>
-		<Saybar>
+		<Sidebar>
 				<Routes>
 				
 				<Route path="/" element={<Home2View />} />
@@ -40,7 +40,7 @@ const Router = () => {
 				</Route>
 				
 			</Routes>
-		</Saybar>
+		</Sidebar>
 		</BrowserRouter>
 	);
 };

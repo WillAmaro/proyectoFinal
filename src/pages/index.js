@@ -6,11 +6,6 @@ export { default as LoginView } from "./Login";
 
 export { default as SignUpView } from "./SignUp";
 
-export { default as TodoAppView } from "./TodoApp";
-
-
-
-
 export { default as CiteView} from "./citas"
 
 export { default as Home2View} from "./Home2"

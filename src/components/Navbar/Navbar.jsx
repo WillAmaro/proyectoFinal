@@ -9,7 +9,7 @@ import "./index.css"
 
 
 
-function Navbar() {
+const Navbar =() => {
 
   const {isAuth , logout}= useContext(AuthContext);
 
@@ -43,11 +43,9 @@ function Navbar() {
         </li>
 
         <li className="nav-item font-weight-bold">
-          <Button className="nav-link active text-white font-weight-bold" aria-current="page" component={Link} t to="/login"       onClick={logout}><h4>Cerrar sesion</h4></Button>
+          <Button className="nav-link active text-white font-weight-bold" aria-current="page" component={Link}  to="/login"       onClick={logout}><h4>Cerrar sesion</h4></Button>
         </li>
-        <li className="nav-item dropdown">
-          
-        </li>
+    
        
       </ul>
    

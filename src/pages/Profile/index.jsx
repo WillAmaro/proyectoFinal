@@ -47,6 +47,7 @@ const Profile = () => {
                     type="text"
                     className="form-control"
                     value={user.name}
+                    readOnly
                   />
                 </div>
                 <div className="col-6">
@@ -55,6 +56,7 @@ const Profile = () => {
                     type="text"
                     className="form-control"
                     value={user.lastName}
+                    readOnly
                   />
                 </div>
                 <div className="col-12 mt-3">
@@ -63,6 +65,7 @@ const Profile = () => {
                     type="text"
                     value={user.email}
                     className="form-control"
+                    readOnly
                   />
                 </div>
                 <div className="col-12 mt-3">
@@ -71,6 +74,7 @@ const Profile = () => {
                     type="text"
                     value={user.petname}
                     className="form-control"
+                    readOnly
                   />
                 </div>
                 <div className="col-12 mt-3">
@@ -79,6 +83,7 @@ const Profile = () => {
                     type="text"
                     className="form-control"
                     value={user.pet}
+                    readOnly
                   />
                 </div>
                 <div className="col-6 mt-3">
@@ -87,6 +92,7 @@ const Profile = () => {
                     type="text"
                     className="form-control"
                     value={user.petage}
+                    readOnly
                   />
                 </div>
                 <div className="col-6 mt-3">
@@ -95,6 +101,7 @@ const Profile = () => {
                     type="text"
                     className="form-control"
                     value={user.distrito}
+                    readOnly
                   />
                 </div>
 
