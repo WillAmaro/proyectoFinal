@@ -162,7 +162,7 @@ function TaskCard(props) {
 						Sede :	{task.petplace}</h4>
 					</span>
 				
-				<div className="d-flex gap-2">
+				<div className="d-flex gap-2 mx-auto">
 					
 						<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50" onClick={()=>modificarNombre(task.id)}>
 							<h4>Modificar cita</h4>
