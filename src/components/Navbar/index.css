@@ -1,0 +1,9 @@
+#navi>h4{
+  font-family: 'Gemunu Libre', sans-serif;}
+@media (min-width=1000px){
+    #navnavbarTogglerDemo03{
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+  }

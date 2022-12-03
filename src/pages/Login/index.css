@@ -1,7 +1,6 @@
 
 
-.bg__login {
-  background: url("../../assets/huellas.jpeg");
+#bg__login {
   height: 100vh;
   background-size: cover;
   background-position: center;

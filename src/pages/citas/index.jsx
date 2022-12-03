@@ -29,7 +29,9 @@ import {
 	const [user, setUser] = useState({
 	
 	  	name: "",
+		email: "",
 		fecha: "",
+		hora:"",
 		petname : "",
 		petplace :"",
 		especialidad : "",
@@ -50,7 +52,9 @@ import {
 	  const data = new FormData(event.currentTarget);
 	  const newUser = new MedicalModel(
 		data.get("name"),
+		data.get("email"),
 		data.get("fecha"),
+		data.get("hora"),
 		data.get("petname"),
 		data.get("petplace"),
 		data.get("especialidad"),
@@ -60,7 +64,7 @@ import {
 
 	  const inicio = cites(user.name);
 	  console.log(cites)
-	  history("/")
+	  history("/home")
 	 
 	};
 	return (
@@ -82,7 +86,7 @@ import {
 		  </Typography>
 		  <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
 			<Grid container spacing={2}>
-			  <Grid item xs={12} sm={6}>
+			  <Grid item xs={12} >
 				<TextField
 				  autoComplete="given-name"
 				  name="name"
@@ -94,14 +98,39 @@ import {
 				  onChange={handleInputChange}
 				/>
 			  </Grid>
+			  <Grid item xs={12} >
+				<TextField
+				  autoComplete="given-name"
+				  name="email"
+				  required
+				  fullWidth
+				  id="email"
+				  label="E-mail"
+				  autoFocus
+				  onChange={handleInputChange}
+				/>
+			  </Grid>
   
-			  <Grid item xs={12} sm={6}>
+			  <Grid item xs={12} >
 				<TextField
 				  required
 				  fullWidth
 				  id="fecha"
 				  label="Fecha requerida de atención"
 				  name="fecha"
+				  autoComplete="family-name"
+				  onChange={handleInputChange}
+				/>
+			  </Grid>
+
+			  
+			  <Grid item xs={12} >
+				<TextField
+				  required
+				  fullWidth
+				  id="hora"
+				  label="Hora requerida de atención"
+				  name="hora"
 				  autoComplete="family-name"
 				  onChange={handleInputChange}
 				/>
@@ -137,7 +166,7 @@ import {
 				  required
 				  fullWidth
 				  id="especialidad"
-				  label="Especialidad requerida"
+				  label="Servicio requerido"
 				  name="especialidad"
 				  autoComplete="given-name"
 				  onChange={handleInputChange}
@@ -154,11 +183,7 @@ import {
 			>
 			  Registrar
 			</Button>
-			<Grid container justifyContent="flex-end">
-			  <Grid item>
-				<Link to="/login">Ya tengo cuenta</Link>
-			  </Grid>
-			</Grid>
+		
 		  </Box>
 		</Box>
 	  </Container>

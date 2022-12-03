@@ -7,7 +7,8 @@ import { getProfile } from "../../services";
 
 
 const Profile = () => {
-  const { user: userContext } = useContext(AuthContext);
+  const { user: userContext ,logouth } = useContext(AuthContext);
+
 
   const [user, setUser] = useState(null);
 
@@ -34,7 +35,7 @@ const Profile = () => {
       <div className="d-flex justify-content-center mt-3">
         <div className="row">
           <div className="col-12">
-            <h6 className="text-gray">Editar perfil</h6>
+      
           </div>
           <div className="col-12 mt-3">
             {user && (
@@ -96,15 +97,7 @@ const Profile = () => {
                     value={user.distrito}
                   />
                 </div>
-                            <div className="col-12 mt-3 d-flex gap-2">
-                <Button
-                component={Link}
-                to="/"
-                >
-                 Guardar
-                 </Button>
-                <button className="btn btn-danger">Cerrar session</button>
-                </div>
+
               </div>
             )}
           </div>

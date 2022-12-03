@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import Swal from "sweetalert2";
 import "./index.css"
+import {destroy} from "../../services"
 
 function TaskCard(props) {
-	const { task, updateTask } = props;
+	const { task, updateTask, destroyTask} = props;
 
 
 
@@ -50,13 +50,34 @@ function TaskCard(props) {
 		const fecha = `task${taskId}`
 		setInputSelect(fecha);
 
+
 	
 
 	//	const nombre = window.prompt('cambiar nombre')
 	//	if(nombre){
 	//		await updateTask(task.id,{name:nombre})
 	//		}
+
+	
 	}
+
+	async function eliminarNombre (taskId) {
+			
+		await destroyTask(taskId)
+
+	
+
+	
+
+	//	const nombre = window.prompt('cambiar nombre')
+	//	if(nombre){
+	//		await updateTask(task.id,{name:nombre})
+	//		}
+
+	
+	}
+
+
 	async	function handleKeyDown (e){
 		if (e.key === 'Enter') {
 			const nombre = e.target.value
@@ -71,26 +92,20 @@ function TaskCard(props) {
 		setCurrentName({ ...currentName, [fecha]: value })
 	}
 
+
 	return (
 		<div
-			className={`mt-3 card p-3 mt-3 shadow-sm bg-opacity-10 `}
+			className="mt-3 card p-3 mt-3 shadow-sm bg-opacity-10 "
 		>
-			<div id="container" className="d-flex">
+			<div  className="d-flex">
 				
-					<span className="me-3">
-						<button
-							onClick={confirmUpdate}
-							className="btn btn-sm btn-outline-primary py-0 small opacity-50"
-						>
-							
-						</button>
-					</span>
+				
 
 				{
 					inputSelect === `task${task.id}`
 						?
 							(
-								<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<div id="citas" style={{ display: 'flex', flexDirection: 'column' }}>
 									<h3>Dia de cita a cambiar: </h3>{task.fecha}
 									<h3>Dia de cita nueva : </h3>
 									<input className="btn btn-light"
@@ -101,44 +116,70 @@ function TaskCard(props) {
 									/>
 								</div>
 							)
-						:  <Link to={"/task/" + task.id} >
-							<h3> Dia de cita :  </h3> 
-							{task.fecha}</Link>
+						:  <div className="d-flex mx-auto flex-column" >
+							<h3> Dia de cita programada :  </h3> 
+						<h3>  	{task.fecha}</h3>
+						
+						
+					
+						
+						</div>
 				}
 			</div>
 			<hr className="border border-muted border-1" />
-			<div className="d-flex justify-content-between">
-				<span className="text-muted small">
-					Servicio requerido : {task.especialidad}
-				</span>
-				
-					<span className="text-success text-bold small">
-						✓&nbsp;
-						Dueño : {task.name}
+			<div className="d-flex flex-column flex-wrap m-auto">
+				<span className="text-muted ">
+				<h4>	Servicio requerido : {task.especialidad} </h4>
+				</span>				<span className="text-success small">
+				<h4>	
+						Correo :	{task.email}</h4>
 					</span>
+						
+					<span className="text-dark text-bold small">
+						
+						<h4>
+				 Hora de cita : {task.hora}
+
+						</h4>
+							</span>
+				
+					<span className="text-primary text-bold small">
+						
+						<h4>
+				 Dueño : {task.name}
+
+						</h4>
+							</span>
 				
 				
 					<span className="text-danger small">
-					✓&nbsp;
-						Mascota :	{task.petname}
+				<h4>	
+						Mascota :	{task.petname}</h4>
+					</span>
+
+					<span className="text-dark small">
+				<h4>	
+						Sede :	{task.petplace}</h4>
 					</span>
 				
-				<span>
+				<div className="d-flex gap-2">
 					
 						<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50" onClick={()=>modificarNombre(task.id)}>
-							✎
+							<h4>Modificar cita</h4>
 						</button>
 					
 
 					
 						<button
-							onClick={confirmDestroy}
+					
+				onClick={()=>eliminarNombre(task.id)}
 							className="btn btn-sm btn-outline-danger py-0 small opacity-50"
 						>
-							×
+						<h4>	×</h4>
 						</button>
+						
 					
-				</span>
+				</div>
 			</div>
 		</div>
 	);

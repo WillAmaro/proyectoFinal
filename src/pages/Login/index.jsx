@@ -45,8 +45,8 @@ const Login = () => {
   }
 
   return (
-    <div className="bg__login">
-      <div
+    <div >
+      <div id="bg__login"
         className="d-flex justify-content-center align-items-center"
         style={{
           height: "100vh",

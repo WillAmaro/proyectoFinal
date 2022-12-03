@@ -166,7 +166,7 @@ export const postMedicalConsultation = async (user) => {
 // Para la eliminar un registro unicamente necesito el id
 export const destroy = async (id) => {
   try {
-    const response = await fetch(`${url}/${id}`, {
+    const response = await fetch(`${url2}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

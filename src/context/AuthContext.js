@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { getUsers, getUsers2 } from "../services";
 
 export const AuthContext = createContext();
@@ -52,6 +53,7 @@ export const AuthProvider = (props) => {
   function logout() {
     localStorage.clear();
     setUser({});
+    Navigate('/login')
   }
 
   // funcion para validar si la session existe
