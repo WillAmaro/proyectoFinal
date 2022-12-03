@@ -100,7 +100,7 @@ const Home2 = () => {
                           
                       </div>
                           <div className="parrafo">
-                             SAFETY CAN es una veterinaria dedicada a cuidar de tu mascota en los momentos mas dificiles con las  <span>medidas de seguridad</span> adecuadas para que tu engreido este siempre saludable.
+                             DOG LOVER es una veterinaria dedicada a cuidar de tu mascota en los momentos mas dificiles con las  <span>medidas de seguridad</span> adecuadas para que tu engreido este siempre saludable.
                           </div>
                           <Button className="boton m-auto" component={Link} to="/cites"  color="secondary"> Reservar cita </Button>
                         
@@ -175,9 +175,9 @@ const Home2 = () => {
         
                 </div>
                 <div className="benefits">
-                      <section className="card11"><img src={imagen6}alt=""/><h1>En SafetyCan contamos con <span>personal capacitado</span>, de esta forma podemos garantizar la segura atencion de tu mascotaa </h1></section>
+                      <section className="card11"><img src={imagen6}alt=""/><h1>En DogLover contamos con <span>personal capacitado</span>, de esta forma podemos garantizar la segura atencion de tu mascotaa </h1></section>
                       <section className="card1"><img src={imagen7} alt=""/><h1> Nuestros colaboradores cuentan con un examen psicologico laboral aprobado enfocado en encontrar a las personas idoneas para cuidar a tu engreido.</h1></section>
-                      <section className="card11" ><img src={imagen8} alt=""/><h1>En SafetyCan realizamos  <span>los filtros de antecedentes policales</span> lo cual nos permite asegurar que nuestros colaboradores son personas aptas para brindar una experiencia segura</h1></section>
+                      <section className="card11" ><img src={imagen8} alt=""/><h1>En DogLover realizamos  <span>los filtros de antecedentes policales</span> lo cual nos permite asegurar que nuestros colaboradores son personas aptas para brindar una experiencia segura</h1></section>
                       <section className="card1"><img src={imagen9} alt=""/><h1>Nuestro establecimiento cuenta con cámaras de seguridad los cuales permiten un monitoreo constante del personal de salud animal .</h1></section>
                       <section className="card11"><img src={imagen10} alt=""/><h1>Elaboramos un listado con los principales números de emergencia y protocolos de acción contemplando cualquier imprevisto.</h1></section>
                       <section className="card1"><img src={imagen11} alt=""/><h1> Un colaborador te atenderá desde el primer momento que registres una cita con nosotros via virtual </h1></section>
@@ -188,14 +188,14 @@ const Home2 = () => {
         <br/>
     <section id="preguntas" className="m-auto">
     <h1 className="subtitle d-flex justify-content-center">Preguntas <span>Frecuentes</span> </h1>
-                <div className="questions__parragraph  d-flex justify-content-center text-center"  > En esta sección podras encontrar la respuesta a las dudas mas frecuentes con las cuales cuentan nuestros clientes donde explicamos como funciona MR.DOG, las bondades de nuestro servicio.</div>
+                <div className="questions__parragraph  d-flex justify-content-center text-center"  > En esta sección podras encontrar la respuesta a las dudas mas frecuentes con las cuales cuentan nuestros clientes donde explicamos como funciona DOGLOVER, las bondades de nuestro servicio.</div>
         <br/>
         
                 <div className="accordion" id="accordionPanelsStayOpenExample">
   <div id="preguntas"className="accordion-item p-2">
     <h2 className="accordion-header" id="panelsStayOpen-headingOne">
       <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-      ¿Que es SAFETY CAN?
+      ¿Que es DOG LOVER?
       </button>
     </h2>
     <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
@@ -255,7 +255,7 @@ const Home2 = () => {
                 <section className="footer__container container">
                     <nav className="nav nav--footer">   
                         <h2 className="footer__title">
-                            SAFETY CAN
+                          DOG LOVER
                         </h2>
         
         
