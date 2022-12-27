@@ -57,7 +57,7 @@ function Home() {
 	//	await getTasks();
 //	}
 
-	async function updateTask(id, body = {fecha:'',hora:'', }) 
+	async function updateTask(id, body = {fecha:'',hora:'',especialidad:'' }) 
 	{
 		await update(id, body);
 		await getTasks();

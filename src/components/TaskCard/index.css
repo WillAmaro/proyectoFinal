@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 
 #containes{
@@ -29,9 +30,9 @@ color: aliceblue;    text-decoration: none;
 
 
 h4{
-    text-align: center;
+   
     font-weight: bold;
-    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
 
 }
@@ -43,7 +44,7 @@ h3{
 
 
  
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Poppins', sans-serif;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -54,10 +55,14 @@ h3{
     color:black;
     margin: auto;
     justify-content: center;
-    font-family: 'Gemunu Libre', sans-serif;
+
     font-weight: bold;
     margin-bottom: 10px;
 
+}
+.span{
+    font-weight: bold !important;
+    font-family: 'Poppins';
 }
 
 

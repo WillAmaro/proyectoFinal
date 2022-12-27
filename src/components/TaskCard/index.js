@@ -1,40 +1,33 @@
 import { useState } from "react";
 import "./index.css"
 
+//	const nombre = window.prompt('cambiar nombre')
+	//	if(nombre){
+	//  await updateTask(task.id,{name:nombre})
+	// } 
+
 
 function TaskCard(props) {
 	const { task, updateTask, destroyTask} = props;
 
 
-	const [ currentName, setCurrentName ] = useState({fecha:"",hora:"",})
+	const [ currentName, setCurrentName ] = useState({fecha:"",hora:"", especialidad: "",})
 	const [ inputSelect, setInputSelect] = useState("") ;
 
 	async function modificarNombre (taskId) {
 		const id = `task${taskId}`
 		setInputSelect(id);
-
-//	const nombre = window.prompt('cambiar nombre')
-	//	if(nombre){
-	//		await updateTask(task.id,{name:nombre})
-	//		}
-
-	
 	}
 
 	async function eliminarNombre (taskId) {
-			
 		await destroyTask(taskId)
-
-	
 	}
 
 
 	async	function handleKeyDown (e){
 		if (e.key === 'Enter') {
 			e.preventDefault();
-			
-	
-	 		await updateTask(task.id,currentName)
+			await updateTask(task.id,currentName)
 			setInputSelect('')
 		}	
 	
@@ -47,18 +40,12 @@ function TaskCard(props) {
 		console.log(onSubmit)
 	  }
 
+
 	function handleOnChange (e){
-
-
-	    const { name, value } = e.target;
+    const { name, value } = e.target;
     setCurrentName({ ...currentName, [name]: value });
 
-
   }
-
-
-	
-	
 
 
 	return (
@@ -93,6 +80,16 @@ function TaskCard(props) {
 									onChange={handleOnChange} 
 									
 									/>
+
+									<h3> Especialidad a cambiar: </h3>{task.especialidad}
+									<h3> Especialidad nueva: </h3>
+									<input className="btn btn-light rounded-pill"
+									name= "especialidad"
+									value={currentName.especialidad}
+									onKeyDown={handleKeyDown}
+									onChange={handleOnChange} 
+									
+									/>
 	
 
 									<button className="btn btn-danger  rounded-pill" onSubmit={onSubmit}>Editar</button>
@@ -104,7 +101,7 @@ function TaskCard(props) {
 								
 							)
 						:  <div className="d-flex mx-auto flex-column" >
-							<h3> Dia de cita programada :  </h3> 
+							<h3> <span className="span">Dia de cita programada : </span>  </h3> 
 						<h3>  	{task.fecha}</h3>
 						
 						
@@ -114,15 +111,16 @@ function TaskCard(props) {
 				}
 			</div>
 			<hr className="border border-muted border-1" />
-			<div className="d-flex flex-column flex-wrap m-auto">
+			<div className="d-flex flex-column flex-wrap m-auto ">
 				<span className="text-muted ">
 				<h4>	Servicio requerido : {task.especialidad} </h4>
-				</span>				<span className="text-success small">
+				</span>				<span className="text-muted small">
+			
 				<h4>	
 						Correo :	{task.email}</h4>
 					</span>
-						
-					<span className="text-dark text-bold small">
+		
+					<span className="text-muted text-bold small">
 						
 						<h4>
 				 Hora de cita : {task.hora}
@@ -130,7 +128,7 @@ function TaskCard(props) {
 						</h4>
 							</span>
 				
-					<span className="text-primary text-bold small">
+					<span className="text-muted text-bold small">
 						
 						<h4>
 				 Dueño : {task.name}
@@ -139,17 +137,17 @@ function TaskCard(props) {
 							</span>
 				
 				
-					<span className="text-danger small">
+					<span className="text-muted small">
 				<h4>	
 						Mascota :	{task.petname}</h4>
 					</span>
 
-					<span className="text-dark small">
+					<span className="text-muted small">
 				<h4>	
 						Sede :	{task.petplace}</h4>
 					</span>
 				
-				<div className="d-flex gap-2 mx-auto">
+				<div className="d-flex gap-2 ">
 					
 						<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50" onClick={()=>modificarNombre(task.id)}>
 							<h4>Modificar cita</h4>
