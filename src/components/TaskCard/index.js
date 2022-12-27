@@ -1,59 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import "./index.css"
-import {destroy} from "../../services"
+
 
 function TaskCard(props) {
 	const { task, updateTask, destroyTask} = props;
 
 
-
-	async function createAlert(text) {
-		const res = await Swal.fire({
-			title: "Importante!!!",
-			text,
-			showCancelButton: true,
-			showConfirmButton: true,
-		});
-
-		//ok => true
-		// cancel => false
-		return res.isConfirmed;
-	}
-
-	async function confirmUpdate() {
-		const isConfirmed = await createAlert(
-			"Estas seguro de confirmar que terminaste esta tarea?"
-		);
-
-		if (isConfirmed) {
-			await updateTask (task.id, "done");
-		}
-	}
-
-	async function confirmDestroy() {
-		const isConfirmed = await createAlert(
-			"Esta seguro de hacer esta acción, ya no hay vuelta atrás"
-		);
-
-		if (isConfirmed) {
-			await updateTask(task.id, "delete");
-		}
-	}
-
-
-	const [ currentName, setCurrentName ] = useState({})
+	const [ currentName, setCurrentName ] = useState({fecha:"",hora:"",})
 	const [ inputSelect, setInputSelect] = useState("") ;
 
 	async function modificarNombre (taskId) {
-		const fecha = `task${taskId}`
-		setInputSelect(fecha);
+		const id = `task${taskId}`
+		setInputSelect(id);
 
-
-	
-
-	//	const nombre = window.prompt('cambiar nombre')
+//	const nombre = window.prompt('cambiar nombre')
 	//	if(nombre){
 	//		await updateTask(task.id,{name:nombre})
 	//		}
@@ -66,31 +26,39 @@ function TaskCard(props) {
 		await destroyTask(taskId)
 
 	
-
-	
-
-	//	const nombre = window.prompt('cambiar nombre')
-	//	if(nombre){
-	//		await updateTask(task.id,{name:nombre})
-	//		}
-
-	
 	}
 
 
 	async	function handleKeyDown (e){
 		if (e.key === 'Enter') {
-			const nombre = e.target.value
-			await updateTask(task.id,{ fecha: nombre })
+			e.preventDefault();
+			
+	
+	 		await updateTask(task.id,currentName)
 			setInputSelect('')
-		}
+		}	
+	
 	} 
 
+	async function onSubmit(e) {
+		e.preventDefault();
+		
+		await updateTask(task.id,currentName);
+		console.log(onSubmit)
+	  }
+
 	function handleOnChange (e){
-		console.log(e.target.value)
-		const {fecha, value} = e.target
-		setCurrentName({ ...currentName, [fecha]: value })
-	}
+
+
+	    const { name, value } = e.target;
+    setCurrentName({ ...currentName, [name]: value });
+
+
+  }
+
+
+	
+	
 
 
 	return (
@@ -105,16 +73,35 @@ function TaskCard(props) {
 					inputSelect === `task${task.id}`
 						?
 							(
-								<div id="citas" style={{ display: 'flex', flexDirection: 'column' }}>
+								<form id="citas" style={{ display: 'flex', flexDirection: 'column' }} >
 									<h3>Dia de cita a cambiar: </h3>{task.fecha}
 									<h3>Dia de cita nueva : </h3>
-									<input className="btn btn-light"
-										name={`task${task.id}`}
-										value={currentName[`task${task.id}`]}
-										onKeyDown={handleKeyDown}
-										onChange={handleOnChange}
+									<input className="btn btn-light  rounded-pill"
+									name= "fecha"
+									value={currentName.fecha}
+									
+									onKeyDown={handleKeyDown}
+									onChange={handleOnChange} />
+									
+
+									<h3> Hora a cambiar: </h3>{task.hora}
+									<h3> Hora nueva  de cita: </h3>
+									<input className="btn btn-light rounded-pill"
+									name= "hora"
+									value={currentName.hora}
+									onKeyDown={handleKeyDown}
+									onChange={handleOnChange} 
+									
 									/>
-								</div>
+	
+
+									<button className="btn btn-danger  rounded-pill" onSubmit={onSubmit}>Editar</button>
+
+								</form>
+
+								
+
+								
 							)
 						:  <div className="d-flex mx-auto flex-column" >
 							<h3> Dia de cita programada :  </h3> 
@@ -168,7 +155,6 @@ function TaskCard(props) {
 							<h4>Modificar cita</h4>
 						</button>
 					
-
 					
 						<button
 					

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { TaskForm, TaskCard } from "../../components";
+import { TaskCard } from "../../components";
 import { destroy, get2,  update } from "../../services";
 import { MedicalModel2 } from "../../models/MedicalModel2";
 
@@ -57,8 +57,8 @@ function Home() {
 	//	await getTasks();
 //	}
 
-	async function updateTask(id, body = { type :'',doneAt:'',deleteAt:'', name:'' }) {
-		
+	async function updateTask(id, body = {fecha:'',hora:'', }) 
+	{
 		await update(id, body);
 		await getTasks();
 	}
@@ -89,7 +89,6 @@ function Home() {
 	return (
 		<div id="titulo" className="container my-5">
 			<h2>Hola {user.name} estas son tus citas registradas</h2>
-{/*<TaskForm  onSubmitFunction={addTask}/>*/}
 			<div className="text-primary">
 				<hr />
 			</div>
