@@ -7,6 +7,16 @@ import { AuthContext } from "../../context/AuthContext";
 
 
 
+// import * as React from 'react';
+//import Table from '@mui/material/Table';
+//import TableBody from '@mui/material/TableBody';
+//import TableCell from '@mui/material/TableCell';
+//import TableContainer from '@mui/material/TableContainer';
+//import TableHead from '@mui/material/TableHead';
+//import TableRow from '@mui/material/TableRow';
+//import Paper from '@mui/material/Paper';
+
+
 function Home() {
 	const { user } = useContext(AuthContext);
 	const [taskList, setTaskList] = useState([]);
@@ -39,9 +49,11 @@ function Home() {
 				
 			});
 			setTaskList(myUserTasks);
+
 			
 		} else {
 			setTaskList(tasksModels)
+			
 		}
 
 		console.log(tasksModels)
@@ -87,11 +99,25 @@ function Home() {
 	}, []);
 
 	return (
-		<div id="titulo" className="container my-5">
+		<div id="titulo" className="container my-3" >
 			<h2>Hola {user.name} estas son tus citas registradas</h2>
 			<div className="text-primary">
 				<hr />
 			</div>
+		{/*}	
+			<TableContainer>
+			<Table sx={{ minWidth: 650 }} aria-label="simple table">
+			<TableHead>
+          <TableRow >
+            <TableCell id="tables">DIA DE CITA</TableCell>
+            <TableCell id="tables" align="right">HORA PROGRAMADA</TableCell>
+            <TableCell id="tables" align="right">SERVICIO REQUERIDO</TableCell>
+            <TableCell id="tables" align="center">MASCOTA</TableCell>
+            <TableCell id="tables" align="center">SEDE</TableCell>
+          </TableRow>
+        </TableHead>
+		</Table>
+	</TableContainer>*/}
 			<div className="mt-5">
 				{taskList.map((task, index) => (
 					<TaskCard

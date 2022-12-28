@@ -70,3 +70,38 @@ h3{
     width: 90%;
     margin: auto;
 }
+
+
+#table{
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 1rem;
+    width: 200px;
+    text-align: initial;
+    border-radius: 0px;
+    
+
+
+}
+
+#tables{
+    font-family: 'Gemunu Libre';
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 200px;
+    text-align: initial;background-color: white ;
+    border-radius: 0px;
+    background-color: rgba(12, 248, 170, 0.694) ;
+
+}
+
+th{
+    width: 200px;
+    border-radius: 0px;
+}
+
+td{
+    width: 200px;
+    margin-left: 0px;
+
+}

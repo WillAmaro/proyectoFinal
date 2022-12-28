@@ -3,6 +3,7 @@ import { postMedicalConsultation } from "../../services";
 
 
  class Form extends React.Component{
+
     constructor ( props ) {
         super (props);
         this.state ={
@@ -18,6 +19,7 @@ import { postMedicalConsultation } from "../../services";
         }
     }
 
+
     handleChange = (event) => {
         console.log(event.target)
         this.setState({
@@ -29,7 +31,10 @@ import { postMedicalConsultation } from "../../services";
 
 
     handleSubmit = async (event) => {
+
         await postMedicalConsultation(this.state)
+  
+      
 
     }
     render () {
@@ -87,7 +92,7 @@ import { postMedicalConsultation } from "../../services";
                  required
                  ></input>
 
-            <button className="btn btn-primary">Agregar</button>
+            <button className="btn btn-primary" >Agregar</button>
             </form>
         )
     }
