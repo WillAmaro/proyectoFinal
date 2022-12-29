@@ -19,7 +19,7 @@ import { postMedicalConsultation } from "../../services";
         }
     }
 
-
+ 
     handleChange = (event) => {
         console.log(event.target)
         this.setState({
@@ -28,12 +28,13 @@ import { postMedicalConsultation } from "../../services";
         })
     }
 
+    
 
-
-    handleSubmit = async (event) => {
-
-        await postMedicalConsultation(this.state)
   
+    handleSubmit = async (event) => {
+       
+        await postMedicalConsultation(this.state)
+     
       
 
     }
@@ -92,7 +93,7 @@ import { postMedicalConsultation } from "../../services";
                  required
                  ></input>
 
-            <button className="btn btn-primary" >Agregar</button>
+            <button className="btn btn-primary" type="submit" >Agregar</button>
             </form>
         )
     }

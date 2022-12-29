@@ -18,11 +18,14 @@ import "./index.css";
 function TaskCard(props) {
   const { task, updateTask, destroyTask } = props;
 
+  //Almacenara los datos ingresados en los inputs (handleOnChange)
   const [currentName, setCurrentName] = useState({
     fecha: "",
     hora: "",
     especialidad: "",
   });
+
+
   const [inputSelect, setInputSelect] = useState("");
 
   async function modificarNombre(taskId) {
@@ -34,6 +37,9 @@ function TaskCard(props) {
     await destroyTask(taskId);
   }
 
+  //Enviara dos parametros ( El "id" de la tarea requerida y la variable currentName
+  //que contiene los datos capturados en el evento onChange)
+
   async function handleKeyDown(e) {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -41,18 +47,22 @@ function TaskCard(props) {
 	  setInputSelect("");
     }
   }
+  
+  //Enviara dos parametros ( El "id" de la tarea requerida y la variable currentName
+  //que contiene los datos capturados en el evento onChange)
 
-  async function onSubmit(e) {
+  
+  const onSubmit = (e) => {
     e.preventDefault();
+    
+    updateTask(task.id,currentName);
+	  setInputSelect("");
 
-    await updateTask(task.id, currentName);
-	setInputSelect("");
-    console.log(onSubmit);
   }
 
   function handleOnChange(e) {
-    const { name, value } = e.target;
-    setCurrentName({ ...currentName, [name]: value });
+   // const { name, value } = e.target;
+    setCurrentName({ ...currentName, [e.target.name]: e.target.value });
   }
 
   return (
@@ -85,7 +95,7 @@ function TaskCard(props) {
           {inputSelect === `task${task.id}` ? (
             <form
               id="citas"
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{ display: "flex", flexDirection: "column" }} onSubmit={onSubmit} 
             >
               <h3>Dia de cita a cambiar: </h3>
               {task.fecha}
@@ -124,8 +134,9 @@ function TaskCard(props) {
               />
 
               <button
+                type="submit"
                 className="btn btn-danger  rounded-pill"
-                onSubmit={onSubmit}
+                
               >
                 Editar
               </button>
