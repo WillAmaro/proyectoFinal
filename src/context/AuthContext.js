@@ -53,7 +53,7 @@ export const AuthProvider = (props) => {
   function logout() {
     localStorage.clear();
     setUser({});
-    Navigate('/login')
+    Navigate('/')
   }
 
   // funcion para validar si la session existe
